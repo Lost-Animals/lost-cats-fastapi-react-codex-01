@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr
 
 from app.models.enums import ContactPreference, UserRole
 
@@ -25,6 +25,4 @@ class UserRead(UserBase):
     created_at: datetime
     updated_at: datetime
     last_login_at: datetime | None = None
-
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

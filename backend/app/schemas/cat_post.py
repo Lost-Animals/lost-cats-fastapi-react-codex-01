@@ -1,7 +1,7 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from app.models.enums import (
     CatAgeGroup,
@@ -43,7 +43,7 @@ class FoundCareInfo(BaseModel):
 
 class CatPostBase(BaseModel):
     type: PostType
-    status: PostStatus
+    status: PostStatus = PostStatus.ACTIVE
     author_user_id: UUID
     title: str
     description: str
@@ -66,6 +66,4 @@ class CatPostRead(CatPostBase):
     created_at: datetime
     updated_at: datetime
     resolved_at: datetime | None = None
-
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

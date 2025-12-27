@@ -13,12 +13,15 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="brand">
+          <span className="brand-mark" aria-hidden="true" />
           <Link to="/">LostCats</Link>
         </div>
         <nav className="nav">
           <Link to="/">Obiavi</Link>
-          <Link to="/chip">Chip</Link>
-          <Link to="/posts/new">Nova obqva</Link>
+          <Link to="/chip">Chip proverka</Link>
+          <Link to="/posts/new" className="cta">
+            Nova obqva
+          </Link>
           <Link to="/login">Vhod</Link>
           <Link to="/register">Registraciya</Link>
         </nav>
