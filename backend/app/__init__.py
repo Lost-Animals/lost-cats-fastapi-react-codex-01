@@ -1,0 +1,1 @@
+"""LostCats backend application package."""
